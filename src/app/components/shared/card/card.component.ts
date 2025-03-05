@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card',
-  imports: [],
   templateUrl: './card.component.html',
-  styleUrl: './card.component.css'
+  styleUrls: ['./card.component.css'],
 })
 export class CardComponent {
+  @Input() character: any;
+  @Output() handleShowModal = new EventEmitter<void>();
 
+  triggerOpenModal(): void {
+    this.handleShowModal.emit();
+  }
 }
